@@ -1,0 +1,41 @@
+services:
+  mysqldb:
+    image: mysql:8.0
+    container_name: pethub-mysql
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: pet_hub
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./database/pet_hub.sql:/docker-entrypoint-initdb.d/init.sql
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-u", "root", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: pethub-app
+    restart: always
+    depends_on:
+      mysqldb:
+        condition: service_healthy
+    environment:
+      DB_URL: jdbc:mysql://mysqldb:3306/pet_hub?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+      DB_USERNAME: root
+      DB_PASSWORD: root
+      PORT: 8080
+    ports:
+      - "8080:8080"
+    volumes:
+      - app_uploads:/app/uploads
+
+volumes:
+  mysql_data:
+  app_uploads:
