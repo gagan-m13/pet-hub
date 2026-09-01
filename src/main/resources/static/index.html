@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PET HUB — Premium Pet Food, Toys & Care</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <span class="logo-paw">🐾</span> PET HUB
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="global-search-input" placeholder="Search food, toys, treats, accessories...">
+                <button type="button" id="global-search-btn" class="search-btn">🔍</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link active">Home</a></li>
+                <li><a href="/products.html" class="nav-link">Shop Catalog</a></li>
+                <li><a href="/products.html?petCategory=1" class="nav-link">Dogs</a></li>
+                <li><a href="/products.html?petCategory=2" class="nav-link">Cats</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="/cart.html" class="icon-btn" title="Shopping Cart">
+                    🛒
+                    <span id="cart-badge" class="badge">0</span>
+                </a>
+                <div id="nav-auth-section" style="display: flex; align-items: center; gap: 10px;">
+                    <!-- Injected dynamically via api.js -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Banner -->
+        <section style="background: linear-gradient(135deg, #004e64 0%, #25a18e 100%); color: white; padding: 70px 0 80px; position: relative; overflow: hidden;">
+            <div class="container" style="display: grid; grid-template-columns: 1.2fr 1fr; gap: 40px; align-items: center;">
+                <div>
+                    <span style="background: rgba(255,255,255,0.2); padding: 6px 14px; border-radius: 9999px; font-weight: 700; font-size: 0.85rem; letter-spacing: 0.5px; text-transform: uppercase;">
+                        🐾 Pure Love For Every Pet
+                    </span>
+                    <h1 style="font-size: 3rem; font-weight: 800; line-height: 1.2; margin: 18px 0 16px;">
+                        Healthy, Happy Pets Start Right Here.
+                    </h1>
+                    <p style="font-size: 1.15rem; opacity: 0.92; margin-bottom: 28px; line-height: 1.6;">
+                        Shop veterinarian-recommended nutrition, durable toys, and cozy accessories crafted for the pets you adore. Fast delivery across India.
+                    </p>
+                    <div style="display: flex; gap: 16px;">
+                        <a href="/products.html" class="btn btn-primary" style="font-size: 1.05rem; padding: 14px 28px;">Explore All Products 🛍️</a>
+                        <a href="/products.html?featured=true" class="btn btn-outline" style="color: white; border-color: white;">View Featured</a>
+                    </div>
+                </div>
+                <div style="position: relative;">
+                    <img src="https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?w=800&auto=format&fit=crop&q=80" alt="Happy Dogs and Cats" style="border-radius: 20px; box-shadow: var(--shadow-lg); width: 100%; height: 380px; object-fit: cover;">
+                </div>
+            </div>
+        </section>
+
+        <!-- Pet Category Selector -->
+        <section class="container" style="margin-top: 60px;">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Shop by Pet Type</h2>
+                    <p class="section-subtitle">Find curated products suited precisely for your companions</p>
+                </div>
+            </div>
+
+            <div id="home-pet-categories" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
+                <!-- Loaded via JS -->
+            </div>
+        </section>
+
+        <!-- Featured Products -->
+        <section class="container" style="margin-top: 70px;">
+            <div class="section-header">
+                <div>
+                    <h2 class="section-title">Trending & Featured Items</h2>
+                    <p class="section-subtitle">Top-rated food, durable chews, and comfort essentials</p>
+                </div>
+                <a href="/products.html" class="btn btn-outline btn-sm">See Full Catalog →</a>
+            </div>
+
+            <div id="home-featured-grid" class="product-grid">
+                <!-- Loaded via JS -->
+            </div>
+        </section>
+
+        <!-- Why Choose Us -->
+        <section style="background: white; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 60px 0; margin-top: 80px;">
+            <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 32px; text-align: center;">
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🏆</div>
+                    <h3 style="color: var(--secondary); margin-bottom: 6px;">100% Authentic Brands</h3>
+                    <p style="color: var(--dark-muted); font-size: 0.95rem;">Only verified, high-quality, vet-approved pet formulas and products.</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🚀</div>
+                    <h3 style="color: var(--secondary); margin-bottom: 6px;">Express Shipping</h3>
+                    <p style="color: var(--dark-muted); font-size: 0.95rem;">Fast delivery to your doorstep with free shipping on orders above ₹999.</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">🔒</div>
+                    <h3 style="color: var(--secondary); margin-bottom: 6px;">Safe & Secure Orders</h3>
+                    <p style="color: var(--dark-muted); font-size: 0.95rem;">Reliable order tracking with Cash on Delivery and direct payments.</p>
+                </div>
+                <div>
+                    <div style="font-size: 2.5rem; margin-bottom: 12px;">❤️</div>
+                    <h3 style="color: var(--secondary); margin-bottom: 6px;">Customer Satisfaction</h3>
+                    <p style="color: var(--dark-muted); font-size: 0.95rem;">Thousands of happy pet parents and tail-wagging reviews.</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🐾 PET HUB</h3>
+                    <p>India's premier e-commerce platform dedicated exclusively to your pet's health, happiness, and nourishment.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Categories</h4>
+                    <ul>
+                        <li><a href="/products.html?petCategory=1">Dogs</a></li>
+                        <li><a href="/products.html?petCategory=2">Cats</a></li>
+                        <li><a href="/products.html?petCategory=3">Birds</a></li>
+                        <li><a href="/products.html?petCategory=4">Fish & Aquatics</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="/products.html">All Products</a></li>
+                        <li><a href="/cart.html">Cart</a></li>
+                        <li><a href="/orders.html">My Orders</a></li>
+                        <li><a href="/profile.html">Profile</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Contact Us</h4>
+                    <ul>
+                        <li>Email: support@pethub.com</li>
+                        <li>Phone: +91 98765 43210</li>
+                        <li>Bengaluru, Karnataka, India</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div>© 2026 PET HUB Inc. All rights reserved.</div>
+                <div>Built with Spring Boot, JPA, MySQL & Vanilla JS</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="/js/api.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', async () => {
+            // Global search trigger
+            document.getElementById('global-search-btn')?.addEventListener('click', () => {
+                const kw = document.getElementById('global-search-input')?.value;
+                if (kw) window.location.href = `/products.html?keyword=${encodeURIComponent(kw)}`;
+            });
+            document.getElementById('global-search-input')?.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') {
+                    const kw = e.target.value;
+                    if (kw) window.location.href = `/products.html?keyword=${encodeURIComponent(kw)}`;
+                }
+            });
+
+            // Load pet categories
+            try {
+                const res = await API.get('/pet-categories');
+                const catContainer = document.getElementById('home-pet-categories');
+                if (catContainer && res.data) {
+                    catContainer.innerHTML = res.data.map(c => `
+                        <a href="/products.html?petCategory=${c.id}" class="card" style="text-align: center; padding: 20px; transition: var(--transition);">
+                            <img src="${c.imageUrl}" alt="${c.name}" style="width: 100px; height: 100px; border-radius: 50%; object-fit: cover; margin: 0 auto 14px; border: 3px solid var(--primary-light);">
+                            <h4 style="color: var(--secondary); font-size: 1.15rem; font-weight: 700;">${c.name}</h4>
+                        </a>
+                    `).join('');
+                }
+            } catch (e) {}
+
+            // Load featured items
+            try {
+                const res = await API.get('/products/featured');
+                const featGrid = document.getElementById('home-featured-grid');
+                if (featGrid && res.data) {
+                    featGrid.innerHTML = res.data.map(p => `
+                        <div class="card product-card">
+                            <span class="product-badge">FEATURED</span>
+                            <a href="/product-details.html?id=${p.id}" class="product-img-wrapper">
+                                <img src="${p.primaryImageUrl}" alt="${p.name}" loading="lazy">
+                            </a>
+                            <div class="product-info">
+                                <span class="product-category-tag">${p.petCategory?.name} • ${p.productCategory?.name}</span>
+                                <a href="/product-details.html?id=${p.id}">
+                                    <h3 class="product-name" title="${p.name}">${p.name}</h3>
+                                </a>
+                                <div class="product-rating">
+                                    <span>★ ${p.averageRating > 0 ? p.averageRating : 'New'}</span>
+                                    <span style="color: var(--dark-muted);">(${p.reviewCount})</span>
+                                </div>
+                                <div class="product-pricing">
+                                    <span class="current-price">${API.formatCurrency(p.effectivePrice)}</span>
+                                    ${p.discountPrice ? `<span class="old-price">${API.formatCurrency(p.price)}</span>` : ''}
+                                </div>
+                                <button onclick="quickAddToCart(${p.id})" class="btn btn-primary btn-sm btn-block">
+                                    Add to Cart 🛒
+                                </button>
+                            </div>
+                        </div>
+                    `).join('');
+                }
+            } catch (e) {}
+        });
+
+        async function quickAddToCart(productId) {
+            if (!API.isAuthenticated()) {
+                API.showToast('Please login to add products to your cart', 'info');
+                setTimeout(() => window.location.href = '/login.html', 800);
+                return;
+            }
+            try {
+                await API.post('/cart/items', { productId, quantity: 1 });
+                API.showToast('Product added to cart! 🛍️', 'success');
+                API.updateCartBadge();
+            } catch (e) {
+                API.showToast(e.message || 'Cannot add item', 'error');
+            }
+        }
+    </script>
+</body>
+</html>

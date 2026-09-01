@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — PET HUB</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <!-- Sidebar -->
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <span>🐾</span> PET HUB Admin
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item active"><a href="/admin/dashboard.html">📊 Dashboard</a></li>
+                <li class="admin-nav-item"><a href="/admin/products.html">🛍️ Products</a></li>
+                <li class="admin-nav-item"><a href="/admin/categories.html">📑 Categories</a></li>
+                <li class="admin-nav-item"><a href="/admin/orders.html">📦 Orders</a></li>
+                <li class="admin-nav-item"><a href="/admin/users.html">👥 Users</a></li>
+                <li class="admin-nav-item"><a href="/admin/reviews.html">⭐ Reviews</a></li>
+                <li class="admin-nav-item" style="margin-top: auto;"><a href="/index.html">🌐 View Store</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="admin-content">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; color: var(--secondary);">Business Intelligence Overview</h1>
+                    <p style="color: var(--dark-muted);">Real-time financial metrics, inventory indicators, and customer trends</p>
+                </div>
+                <div>
+                    <a href="/admin/products.html" class="btn btn-primary btn-sm">+ Add New Product</a>
+                </div>
+            </div>
+
+            <!-- Stats Metric Cards -->
+            <div class="stat-cards-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">💰</div>
+                    <div>
+                        <div id="stat-total-revenue" class="stat-val">₹0.00</div>
+                        <div class="stat-lbl">Total Gross Revenue</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: var(--accent-light); color: var(--accent);">📦</div>
+                    <div>
+                        <div id="stat-total-orders" class="stat-val">0</div>
+                        <div class="stat-lbl">Total Customer Orders</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fef3c7; color: var(--warning);">⏳</div>
+                    <div>
+                        <div id="stat-pending-orders" class="stat-val">0</div>
+                        <div class="stat-lbl">Pending Orders</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon" style="background: #fee2e2; color: var(--danger);">⚠️</div>
+                    <div>
+                        <div id="stat-low-stock" class="stat-val">0</div>
+                        <div class="stat-lbl">Low Stock Alerts (&lt;10)</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">🐶</div>
+                    <div>
+                        <div id="stat-total-products" class="stat-val">0</div>
+                        <div class="stat-lbl">Active Products</div>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon">👥</div>
+                    <div>
+                        <div id="stat-total-users" class="stat-val">0</div>
+                        <div class="stat-lbl">Registered Customers</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Orders & Inventory -->
+            <div style="display: grid; grid-template-columns: 1.5fr 1fr; gap: 24px;">
+                <!-- Recent Orders -->
+                <div class="data-table-card">
+                    <h3 style="color: var(--secondary); margin-bottom: 16px;">Recent Orders</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Order #</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="recent-orders-tbody">
+                            <!-- Loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Low Stock Alert Box -->
+                <div class="data-table-card">
+                    <h3 style="color: var(--danger); margin-bottom: 16px;">⚠️ Low Stock Items</h3>
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Img</th>
+                                <th>Product</th>
+                                <th>SKU</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody id="low-stock-tbody">
+                            <!-- Loaded dynamically -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin/dashboard.js"></script>
+</body>
+</html>

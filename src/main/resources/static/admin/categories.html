@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Categories Management — PET HUB Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <span>🐾</span> PET HUB Admin
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item"><a href="/admin/dashboard.html">📊 Dashboard</a></li>
+                <li class="admin-nav-item"><a href="/admin/products.html">🛍️ Products</a></li>
+                <li class="admin-nav-item active"><a href="/admin/categories.html">📑 Categories</a></li>
+                <li class="admin-nav-item"><a href="/admin/orders.html">📦 Orders</a></li>
+                <li class="admin-nav-item"><a href="/admin/users.html">👥 Users</a></li>
+                <li class="admin-nav-item"><a href="/admin/reviews.html">⭐ Reviews</a></li>
+                <li class="admin-nav-item" style="margin-top: auto;"><a href="/index.html">🌐 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; color: var(--secondary);">Category Management</h1>
+                    <p style="color: var(--dark-muted);">Organize your pet shop taxonomy: Pet Species and Product Departments</p>
+                </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 32px;">
+                <!-- Pet Categories -->
+                <div>
+                    <div class="data-table-card">
+                        <h3 style="color: var(--secondary); margin-bottom: 16px;">Add Pet Category (e.g. Dogs, Cats)</h3>
+                        <form id="add-pet-cat-form">
+                            <div class="form-group">
+                                <label class="form-label" for="pet-cat-name">Category Name *</label>
+                                <input type="text" id="pet-cat-name" class="form-control" required placeholder="e.g. Reptiles & Amphibians">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="pet-cat-img">Image URL</label>
+                                <input type="url" id="pet-cat-img" class="form-control" placeholder="https://images.unsplash.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="pet-cat-desc">Description</label>
+                                <textarea id="pet-cat-desc" class="form-control" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm btn-block">Add Pet Category</button>
+                        </form>
+                    </div>
+
+                    <div class="data-table-card">
+                        <h3 style="color: var(--secondary); margin-bottom: 16px;">Existing Pet Categories</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Img</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Desc</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="pet-categories-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Product Categories -->
+                <div>
+                    <div class="data-table-card">
+                        <h3 style="color: var(--secondary); margin-bottom: 16px;">Add Product Category (e.g. Food, Toys)</h3>
+                        <form id="add-prod-cat-form">
+                            <div class="form-group">
+                                <label class="form-label" for="prod-cat-name">Category Name *</label>
+                                <input type="text" id="prod-cat-name" class="form-control" required placeholder="e.g. Dental Care">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="prod-cat-img">Image URL</label>
+                                <input type="url" id="prod-cat-img" class="form-control" placeholder="https://images.unsplash.com/...">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label" for="prod-cat-desc">Description</label>
+                                <textarea id="prod-cat-desc" class="form-control" rows="2"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm btn-block">Add Product Category</button>
+                        </form>
+                    </div>
+
+                    <div class="data-table-card">
+                        <h3 style="color: var(--secondary); margin-bottom: 16px;">Existing Product Categories</h3>
+                        <table class="data-table">
+                            <thead>
+                                <tr>
+                                    <th>Img</th>
+                                    <th>Name</th>
+                                    <th>Slug</th>
+                                    <th>Desc</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="product-categories-tbody"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin/categories.js"></script>
+</body>
+</html>

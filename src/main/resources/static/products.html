@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog — PET HUB</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/product.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <span class="logo-paw">🐾</span> PET HUB
+            </a>
+
+            <div class="search-bar">
+                <input type="text" id="catalog-search-input" placeholder="Search food, toys, treats, accessories...">
+                <button type="button" id="catalog-search-btn" class="search-btn">🔍</button>
+            </div>
+
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="/products.html" class="nav-link active">Shop Catalog</a></li>
+                <li><a href="/products.html?petCategory=1" class="nav-link">Dogs</a></li>
+                <li><a href="/products.html?petCategory=2" class="nav-link">Cats</a></li>
+            </ul>
+
+            <div class="nav-icons">
+                <a href="/cart.html" class="icon-btn" title="Shopping Cart">
+                    🛒
+                    <span id="cart-badge" class="badge">0</span>
+                </a>
+                <div id="nav-auth-section" style="display: flex; align-items: center; gap: 10px;"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="products-layout">
+            <!-- Filters Sidebar -->
+            <aside class="filters-sidebar">
+                <div class="filter-header">
+                    <h3 style="color: var(--secondary); font-size: 1.15rem;">Filters</h3>
+                    <button onclick="resetFilters()" class="btn btn-outline btn-sm" style="padding: 4px 10px; font-size: 0.8rem;">Reset</button>
+                </div>
+
+                <!-- Pet Type -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Pet Type</h4>
+                    <div id="pet-category-filters" class="filter-options">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Product Category -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Category</h4>
+                    <div id="product-category-filters" class="filter-options">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Brand -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Brand</h4>
+                    <div id="brand-filters" class="filter-options">
+                        <!-- Loaded dynamically -->
+                    </div>
+                </div>
+
+                <!-- Price Range -->
+                <div class="filter-group">
+                    <h4 class="filter-title">Price Range (₹)</h4>
+                    <div class="price-inputs">
+                        <input type="number" id="min-price" placeholder="Min" min="0">
+                        <span>–</span>
+                        <input type="number" id="max-price" placeholder="Max" min="0">
+                    </div>
+                    <button id="price-filter-btn" class="btn btn-outline btn-sm btn-block" style="margin-top: 10px;">Apply Price</button>
+                </div>
+
+                <!-- Availability -->
+                <div class="filter-group">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="in-stock-only">
+                        <span>In Stock Only</span>
+                    </label>
+                </div>
+            </aside>
+
+            <!-- Products Content Area -->
+            <section>
+                <div class="products-toolbar">
+                    <div id="product-count-label" style="font-weight: 600; color: var(--dark-muted);">
+                        Showing products...
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px;">
+                        <label for="sort-by-select" style="font-size: 0.9rem; font-weight: 600;">Sort By:</label>
+                        <select id="sort-by-select" class="sort-select">
+                            <option value="newest">Newest Arrivals</option>
+                            <option value="price_asc">Price: Low to High</option>
+                            <option value="price_desc">Price: High to Low</option>
+                            <option value="name_asc">Name: A to Z</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Product Grid -->
+                <div id="products-grid" class="product-grid">
+                    <!-- Injected dynamically -->
+                </div>
+
+                <!-- Pagination -->
+                <div id="pagination-container"></div>
+            </section>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div>© 2026 PET HUB Inc. All rights reserved.</div>
+                <div>Fast & Reliable Pet E-Commerce Platform</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/products.js"></script>
+</body>
+</html>

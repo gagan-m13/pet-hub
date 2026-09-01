@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secure Checkout — PET HUB</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/checkout.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <span class="logo-paw">🐾</span> PET HUB
+            </a>
+            <div style="font-size: 0.9rem; font-weight: 700; color: var(--dark-muted);">🔒 Secure Checkout</div>
+        </div>
+    </header>
+
+    <main class="container">
+        <div style="margin: 28px 0 20px; display: flex; align-items: center; gap: 12px;">
+            <a href="/cart.html" style="color: var(--primary); font-weight: 700; font-size: 0.9rem;">← Back to Cart</a>
+            <span style="color: var(--border);">|</span>
+            <span style="color: var(--dark-muted); font-size: 0.9rem;">Step 2 of 2: Review & Place Order</span>
+        </div>
+
+        <div class="checkout-layout">
+            <!-- LEFT: Address & Payment -->
+            <div>
+                <!-- Shipping Address -->
+                <div class="checkout-section">
+                    <h2 class="checkout-section-title">📍 Delivery Address</h2>
+                    <div id="addresses-grid" class="address-grid"></div>
+
+                    <details>
+                        <summary style="font-weight: 700; color: var(--primary); cursor: pointer; padding: 10px 0; font-size: 0.9rem; user-select: none;">
+                            + Add a New Delivery Address
+                        </summary>
+                        <form id="new-address-form" style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border);">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label required">Full Name</label>
+                                    <input type="text" id="addr-name" class="form-control" placeholder="Rahul Sharma" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label required">Phone (10 digits)</label>
+                                    <input type="tel" id="addr-phone" class="form-control" placeholder="9876543210" pattern="^[0-9]{10}$" required>
+                                </div>
+                                <div class="form-group full-width">
+                                    <label class="form-label required">Street / House / Flat No.</label>
+                                    <input type="text" id="addr-street" class="form-control" placeholder="Flat 12, Sunshine Apartments, MG Road" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label required">City</label>
+                                    <input type="text" id="addr-city" class="form-control" placeholder="Mumbai" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label required">State</label>
+                                    <input type="text" id="addr-state" class="form-control" placeholder="Maharashtra" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label required">PIN Code</label>
+                                    <input type="text" id="addr-postal" class="form-control" placeholder="400001" required>
+                                </div>
+                                <div class="form-group" style="align-self: end; padding-bottom: 4px;">
+                                    <label class="checkbox-label">
+                                        <input type="checkbox" id="addr-default">
+                                        <span>Save as default address</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-secondary btn-sm" style="margin-top: 4px;">
+                                Save & Select Address
+                            </button>
+                        </form>
+                    </details>
+                </div>
+
+                <!-- Payment Method -->
+                <div class="checkout-section">
+                    <h2 class="checkout-section-title">💳 Payment Method</h2>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="CASH_ON_DELIVERY" checked>
+                        <div class="payment-option-label">
+                            <strong>💵 Cash on Delivery (COD)</strong>
+                            <span>Pay cash or UPI when your package arrives. 100% safe.</span>
+                        </div>
+                    </label>
+
+                    <label class="payment-option">
+                        <input type="radio" name="paymentMethod" value="UPI_ONLINE">
+                        <div class="payment-option-label">
+                            <strong>📱 UPI / Cards / NetBanking</strong>
+                            <span>Instant digital payment simulation for demo.</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+
+            <!-- RIGHT: Order Summary -->
+            <div class="checkout-order-summary">
+                <div class="summary-header">🛍️ Order Summary</div>
+
+                <div class="summary-items">
+                    <div id="checkout-items-list"></div>
+                </div>
+
+                <div class="summary-line">
+                    <div class="summary-row">
+                        <span>Items Subtotal</span>
+                        <strong id="checkout-subtotal">—</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Shipping Fee</span>
+                        <strong id="checkout-shipping" style="color: var(--success);">—</strong>
+                    </div>
+                    <div class="summary-row">
+                        <span>Taxes (5%)</span>
+                        <strong id="checkout-tax">—</strong>
+                    </div>
+                    <hr class="summary-divider">
+                    <div class="summary-total">
+                        <span>Total Due</span>
+                        <span id="checkout-total">—</span>
+                    </div>
+
+                    <button id="place-order-btn" class="btn btn-primary btn-block btn-lg">
+                        Place Order 🐾
+                    </button>
+                    <p style="text-align: center; font-size: 0.78rem; color: var(--dark-muted); margin-top: 12px;">
+                        🔒 Your order details are encrypted and secure
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div>© 2026 PET HUB Inc. All rights reserved.</div>
+                <div>🔒 SSL Secured Transactions</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/checkout.js"></script>
+</body>
+</html>

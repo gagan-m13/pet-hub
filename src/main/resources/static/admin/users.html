@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Accounts — PET HUB Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <span>🐾</span> PET HUB Admin
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item"><a href="/admin/dashboard.html">📊 Dashboard</a></li>
+                <li class="admin-nav-item"><a href="/admin/products.html">🛍️ Products</a></li>
+                <li class="admin-nav-item"><a href="/admin/categories.html">📑 Categories</a></li>
+                <li class="admin-nav-item"><a href="/admin/orders.html">📦 Orders</a></li>
+                <li class="admin-nav-item active"><a href="/admin/users.html">👥 Users</a></li>
+                <li class="admin-nav-item"><a href="/admin/reviews.html">⭐ Reviews</a></li>
+                <li class="admin-nav-item" style="margin-top: auto;"><a href="/index.html">🌐 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; color: var(--secondary);">Customer Account Directory</h1>
+                    <p style="color: var(--dark-muted);">Manage registered users, view roles, and toggle access states</p>
+                </div>
+            </div>
+
+            <div class="data-table-card">
+                <div style="display: flex; gap: 8px; margin-bottom: 20px; max-width: 450px;">
+                    <input type="text" id="user-search-input" class="form-control" placeholder="Search by name, email or phone...">
+                    <button type="button" id="user-search-btn" class="btn btn-secondary btn-sm">Search</button>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>User ID</th>
+                            <th>Full Name</th>
+                            <th>Email Address</th>
+                            <th>Phone</th>
+                            <th>Roles</th>
+                            <th>Account Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-users-tbody"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin/users.js"></script>
+</body>
+</html>

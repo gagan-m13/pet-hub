@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Review Moderation — PET HUB Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <span>🐾</span> PET HUB Admin
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item"><a href="/admin/dashboard.html">📊 Dashboard</a></li>
+                <li class="admin-nav-item"><a href="/admin/products.html">🛍️ Products</a></li>
+                <li class="admin-nav-item"><a href="/admin/categories.html">📑 Categories</a></li>
+                <li class="admin-nav-item"><a href="/admin/orders.html">📦 Orders</a></li>
+                <li class="admin-nav-item"><a href="/admin/users.html">👥 Users</a></li>
+                <li class="admin-nav-item active"><a href="/admin/reviews.html">⭐ Reviews</a></li>
+                <li class="admin-nav-item" style="margin-top: auto;"><a href="/index.html">🌐 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; color: var(--secondary);">Customer Review Moderation</h1>
+                    <p style="color: var(--dark-muted);">Inspect product feedback, verify ratings, and delete inappropriate content</p>
+                </div>
+            </div>
+
+            <div class="data-table-card">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Product</th>
+                            <th>Author</th>
+                            <th>Rating</th>
+                            <th>Comment</th>
+                            <th>Date</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-reviews-tbody"></tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin/reviews.js"></script>
+</body>
+</html>

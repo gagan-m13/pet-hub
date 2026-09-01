@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Orders — PET HUB Admin</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/admin.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <div class="admin-layout">
+        <aside class="admin-sidebar">
+            <div class="admin-brand">
+                <span>🐾</span> PET HUB Admin
+            </div>
+            <ul class="admin-nav">
+                <li class="admin-nav-item"><a href="/admin/dashboard.html">📊 Dashboard</a></li>
+                <li class="admin-nav-item"><a href="/admin/products.html">🛍️ Products</a></li>
+                <li class="admin-nav-item"><a href="/admin/categories.html">📑 Categories</a></li>
+                <li class="admin-nav-item active"><a href="/admin/orders.html">📦 Orders</a></li>
+                <li class="admin-nav-item"><a href="/admin/users.html">👥 Users</a></li>
+                <li class="admin-nav-item"><a href="/admin/reviews.html">⭐ Reviews</a></li>
+                <li class="admin-nav-item" style="margin-top: auto;"><a href="/index.html">🌐 View Store</a></li>
+            </ul>
+        </aside>
+
+        <main class="admin-content">
+            <div class="admin-header">
+                <div>
+                    <h1 style="font-size: 1.8rem; color: var(--secondary);">Order Fulfillment & Management</h1>
+                    <p style="color: var(--dark-muted);">Track customer purchases, update order progression status, and review addresses</p>
+                </div>
+            </div>
+
+            <div class="data-table-card">
+                <div style="display: flex; gap: 16px; margin-bottom: 20px; align-items: center;">
+                    <div style="flex: 1; display: flex; gap: 8px;">
+                        <input type="text" id="order-search-input" class="form-control" placeholder="Search by Order ID, Customer Name or Email...">
+                        <button type="button" id="order-search-btn" class="btn btn-secondary btn-sm">Search</button>
+                    </div>
+                    <select id="order-status-filter" class="form-control" style="width: 200px;">
+                        <option value="">All Statuses</option>
+                        <option value="PLACED">PLACED</option>
+                        <option value="CONFIRMED">CONFIRMED</option>
+                        <option value="PACKED">PACKED</option>
+                        <option value="SHIPPED">SHIPPED</option>
+                        <option value="DELIVERED">DELIVERED</option>
+                        <option value="CANCELLED">CANCELLED</option>
+                    </select>
+                </div>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Order ID</th>
+                            <th>Customer</th>
+                            <th>Shipping Details</th>
+                            <th>Total</th>
+                            <th>Status Transition</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                        </tr>
+                    </thead>
+                    <tbody id="admin-orders-tbody">
+                        <!-- Loaded dynamically -->
+                    </tbody>
+                </table>
+            </div>
+        </main>
+    </div>
+
+    <!-- Order Items Modal -->
+    <div id="order-details-modal" class="modal-backdrop">
+        <div class="modal-box">
+            <div class="modal-header">
+                <h3 style="color: var(--secondary);">Order Line Items Snapshot</h3>
+                <button onclick="closeOrderModal()" class="icon-btn">✕</button>
+            </div>
+            <div id="order-modal-items-list"></div>
+            <div style="text-align: right; margin-top: 20px;">
+                <button onclick="closeOrderModal()" class="btn btn-outline btn-sm">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/admin/orders.js"></script>
+</body>
+</html>

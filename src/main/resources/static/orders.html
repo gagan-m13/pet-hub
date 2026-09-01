@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders — PET HUB</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/responsive.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container nav-container">
+            <a href="/index.html" class="logo">
+                <span class="logo-paw">🐾</span> PET HUB
+            </a>
+            <ul class="nav-links">
+                <li><a href="/index.html" class="nav-link">Home</a></li>
+                <li><a href="/products.html" class="nav-link">Shop</a></li>
+            </ul>
+            <div class="nav-icons">
+                <a href="/cart.html" class="icon-btn" title="Shopping Cart">
+                    🛒 <span id="cart-badge" class="badge">0</span>
+                </a>
+                <div id="nav-auth-section"></div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container" style="margin: 40px auto; max-width: 900px;">
+        <div style="margin-bottom: 28px;">
+            <h1 class="section-title">My Orders & Invoices 📦</h1>
+            <p class="section-subtitle">Track your delivery progress and review purchased items</p>
+        </div>
+
+        <div id="orders-list">
+            <!-- Loaded dynamically -->
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <div>© 2026 PET HUB Inc. All rights reserved.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/js/api.js"></script>
+    <script src="/js/orders.js"></script>
+</body>
+</html>
